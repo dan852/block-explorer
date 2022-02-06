@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rinkeby Block Explorer</title>
+  </head>
+  <body>
+    <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+          >
+            <svg
+              class="bi me-2"
+              width="40"
+              height="32"
+              role="img"
+              aria-label="Bootstrap"
+            >
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+          </a>
+
+          <ul
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+          >
+            <li>
+              <a href="#" class="nav-link px-2 text-secondary"
+                >Block Explorer</a
+              >
+            </li>
+          </ul>
+          <div class="col-5">
+            <input
+              id="search"
+              type="search"
+              class="form-control form-control-dark"
+              placeholder="Transaction..."
+              aria-label="Search"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container" style="margin-top: 2em">
+      <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Latest Blocks</h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="blk-timer"></h6>
+            <table class="table" id="table-blk">
+              <thead>
+                <tr>
+                  <th scope="col">Hash</th>
+                  <th scope="col">Number</th>
+                  <th scope="col">Transactions</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:2em">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" id="table-trx-title">Latest Transactions</h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="trx-timer">Card subtitle</h6>
+            <table class="table" id="table-trx">
+              <thead>
+                <tr>
+                  <th scope="col">Hash</th>
+                  <th scope="col">From</th>
+                  <th scope="col">To</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div id="modal-trx" class="modal" style="display: none">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-trx-title">Transaction</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <label for="inputHash" class="col-sm-4 col-form-label">Hash</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputHash" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputFrom" class="col-sm-4 col-form-label">From</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputFrom" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputTo" class="col-sm-4 col-form-label">To</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputTo" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputValue" class="col-sm-4 col-form-label">Value</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputValue" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputGasPrice" class="col-sm-4 col-form-label">Gas Price</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputGasPrice" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputConfirmations" class="col-sm-4 col-form-label">Confirmations</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputConfirmations" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputNonce" class="col-sm-4 col-form-label">Nonce</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputNonce" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputBlockHash" class="col-sm-4 col-form-label">Block Hash</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputBlockHash" value="">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputBlockNumber" class="col-sm-4 col-form-label">Block Number</label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="inputBlockNumber" value="">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
